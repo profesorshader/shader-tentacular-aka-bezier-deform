@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://c7ejl5xuxb1ul"]
+
+[ext_resource type="PackedScene" uid="uid://cokdutmo2d4uq" path="res://prefabs/tentacle.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://dqbe26161cvt2" path="res://scripts/monster.gd" id="1_tefeu"]
+[ext_resource type="Material" uid="uid://dtm087kmeuphx" path="res://materials/tentacle1.tres" id="2_jyhfs"]
+[ext_resource type="Material" uid="uid://vo2ae1ium2oj" path="res://materials/tentacle2.tres" id="3_tbgi4"]
+[ext_resource type="Material" uid="uid://dhkj0jxh4nq4y" path="res://materials/tentacle3.tres" id="4_tefeu"]
+[ext_resource type="PackedScene" uid="uid://5ahel0rck4" path="res://prefabs/room.tscn" id="5_tbgi4"]
+[ext_resource type="Material" uid="uid://sdgtx0e64ea3" path="res://materials_env/organic.tres" id="6_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://cxr7eg7ifbteu" path="res://textures/nekochan.png" id="8_tipki"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_6taee"]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="Environment" id="Environment_6taee"]
+background_mode = 1
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.1
+volumetric_fog_albedo = Color(1, 0.59272605, 0.5331485, 1)
+volumetric_fog_emission = Color(0, 0, 1, 1)
+volumetric_fog_anisotropy = 0.7
+
+[node name="Node3D" type="Node3D" unique_id=1271387951]
+
+[node name="Monster" type="Node3D" parent="." unique_id=1095639222]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_tefeu")
+amplitude = 0.1
+
+[node name="Tentacle01" parent="Monster" unique_id=20840366 instance=ExtResource("1_o5qli")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 0, 0)
+mat = ExtResource("2_jyhfs")
+
+[node name="Tentacle02" parent="Monster" unique_id=263427401 instance=ExtResource("1_o5qli")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+mat = ExtResource("3_tbgi4")
+
+[node name="Tentacle03" parent="Monster" unique_id=68699845 instance=ExtResource("1_o5qli")]
+transform = Transform3D(-0.70710677, -6.181724e-08, 0.70710677, 8.742278e-08, -1, 0, 0.70710677, 6.181724e-08, 0.70710677, 0, 0, 0)
+mat = ExtResource("4_tefeu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Monster" unique_id=1976628903]
+material_override = ExtResource("6_o6xl0")
+mesh = SubResource("SphereMesh_6taee")
+
+[node name="Room" parent="." unique_id=1978551489 instance=ExtResource("5_tbgi4")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=158336626]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 2)
+fov = 40.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1672604077]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73, 0.722)
+light_volumetric_fog_energy = 5.0
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1299516588]
+environment = SubResource("Environment_6taee")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1304674636]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1326631938]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -512.0
+offset_top = -512.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("8_tipki")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=1933830803]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer" unique_id=1333096206]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 96
+text = "¡SUSCRIBETE!"

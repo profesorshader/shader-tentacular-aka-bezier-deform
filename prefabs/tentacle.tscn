@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://cokdutmo2d4uq"]
+
+[ext_resource type="PackedScene" uid="uid://diowte8v871ud" path="res://models/tentacle.glb" id="1_vhidk"]
+[ext_resource type="Script" uid="uid://b7efh2ld1wsp0" path="res://scripts/tentacle.gd" id="2_fa1bd"]
+[ext_resource type="Material" uid="uid://cogvvlwcbcvvs" path="res://materials/tentacle.tres" id="2_l02rt"]
+[ext_resource type="Script" uid="uid://chk3vs3g7fhb" path="res://addons/bezier5/bezier5.gd" id="3_l02rt"]
+
+[sub_resource type="Animation" id="Animation_l02rt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.25, 0.5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node3D4:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.75, -0.5, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node3D3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.5, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Node3D5:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fa1bd"]
+resource_name = "new_animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D2:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.25, 0.5, 0), Vector3(0.3, 0, 0), Vector3(0.25, -0.5, 0), Vector3(0.3, 0, 0), Vector3(0.25, 0.5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node3D4:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.75, -0.5, 0), Vector3(0.9, 0, 0), Vector3(0.75, 0.5, 0), Vector3(0.9, 0, 0), Vector3(0.75, -0.5, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node3D3:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.5, 0, 0), Vector3(0.6, 0, 0), Vector3(0.5, 0, 0), Vector3(0.6, 0, 0), Vector3(0.5, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Node3D5:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 0, 0), Vector3(1.2, 0, 0), Vector3(1, 0, 0), Vector3(1.2, 0, 0), Vector3(1, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7n7a8"]
+_data = {
+&"RESET": SubResource("Animation_l02rt"),
+&"idle": SubResource("Animation_fa1bd")
+}
+
+[node name="Tentacle" unique_id=20840366 instance=ExtResource("1_vhidk")]
+script = ExtResource("2_fa1bd")
+
+[node name="tentacle" parent="." index="0" unique_id=1997487303]
+material_override = ExtResource("2_l02rt")
+
+[node name="Node3D1" type="Marker3D" parent="tentacle" index="0" unique_id=737817862]
+
+[node name="Node3D2" type="Marker3D" parent="tentacle" index="1" unique_id=1907843799]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0.5, 0)
+
+[node name="Node3D3" type="Marker3D" parent="tentacle" index="2" unique_id=1881822604]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+
+[node name="Node3D4" type="Marker3D" parent="tentacle" index="3" unique_id=1835238286]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, -0.5, 0)
+
+[node name="Node3D5" type="Marker3D" parent="tentacle" index="4" unique_id=1195434284]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="Bezier5" type="Node3D" parent="tentacle" index="5" unique_id=1739556217]
+script = ExtResource("3_l02rt")
+metadata/_custom_type_script = "uid://chk3vs3g7fhb"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=575195287]
+root_node = NodePath("../tentacle")
+libraries/ = SubResource("AnimationLibrary_7n7a8")

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://caujpv78l6rkt"]
+
+[ext_resource type="PackedScene" uid="uid://diowte8v871ud" path="res://models/tentacle.glb" id="1_inacv"]
+[ext_resource type="Material" uid="uid://rc2owb10gjo" path="res://materials/simple_test.tres" id="2_w3o67"]
+
+[node name="SimpleTest" unique_id=109420860 instance=ExtResource("1_inacv")]
+
+[node name="tentacle" parent="." index="0" unique_id=1997487303]
+material_override = ExtResource("2_w3o67")

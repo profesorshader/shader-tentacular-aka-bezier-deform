@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://5ahel0rck4"]
+
+[ext_resource type="PackedScene" uid="uid://c3grr2t3m1cqu" path="res://models/room.glb" id="1_damlf"]
+[ext_resource type="Material" path="res://materials_env/organic.tres" id="2_yg100"]
+
+[node name="Room" unique_id=1978551489 instance=ExtResource("1_damlf")]
+
+[node name="room" parent="." index="0" unique_id=1642831124]
+material_override = ExtResource("2_yg100")
