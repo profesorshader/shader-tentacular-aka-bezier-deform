@@ -71,7 +71,7 @@ void vertex() {
 
 	// create TBN (tangent, binormal, normal) matrix 
 	// (will be used later to transform the original NORMAL, BINORMAL and TANGENT values for this vertex)
-	mat3 TBN = mat3(side, up, forward);
+	mat3 TBN = mat3(forward, up, side);
 
 	// now, we can calculate the position of the vertex along the curve
 	vec3 final_pos = pos0 + (up * VERTEX.y * mesh_scale * scale) + (side * VERTEX.z * mesh_scale * scale);
