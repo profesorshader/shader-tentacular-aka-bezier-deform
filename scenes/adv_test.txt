@@ -1,0 +1,3 @@
+The shader only has some issues with "extreme" curves along the Y axis. You shouldn't have any problems along the XZ axes.
+
+If you encounter issues along the Y axis, try changing the default UP vector.
